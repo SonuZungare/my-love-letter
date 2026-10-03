@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffe0eb, #fff0f5, #ffc2d8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    color: #922653;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #c2185b;
+}
+
+.subtitle {
+    font-family: Arial, sans-serif;
+    color: #a14a70;
+    line-height: 1.7;
+}
+
+/* Envelope */
+
+.envelope {
+    position: relative;
+    width: 290px;
+    height: 190px;
+    margin: 50px auto 25px;
+    background: #ff8fb5;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 12px 30px #d94b8050;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 145px solid transparent;
+    border-right: 145px solid transparent;
+    border-top: 110px solid #ffc0d5;
+    transform-origin: top;
+    transition: transform 0.7s;
+    z-index: 3;
+}
+
+.envelope::after {
+    content: "♥";
+    position: absolute;
+    top: 75px;
+    left: 125px;
+    font-size: 38px;
+    color: #c2185b;
+    z-index: 4;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+.hint {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #b33166;
+}
+
+/* Love letter */
+
+.letter {
+    display: none;
+    margin-top: 30px;
+    padding: 28px 23px;
+    text-align: left;
+    background: #fffdf9;
+    border: 2px solid #ffd0df;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px #c2185b20;
+    line-height: 1.9;
+    animation: appear 1s ease;
+}
+
+.letter h2 {
+    text-align: center;
+    color: #c2185b;
+}
+
+.letter p {
+    font-size: 15px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #c2185b;
+    font-size: 19px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 23px;
+    margin: 15px 0;
+    background: #e91e63;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #e91e6340;
+}
+
+button:hover {
+    background: #ad1457;
+}
+
+#surprise {
+    display: none;
+    text-align: center;
+    font-size: 22px;
+    color: #d81b60;
+}
+
+footer {
+    margin-top: 30px;
+    font: 12px Arial, sans-serif;
+    letter-spacing: 2px;
+    color: #b65c80;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>For My Love 💗</h1>
+
+    <p class="subtitle">
+        I have something special for you...<br>
+        A little letter straight from my heart 💌
+    </p>
+
+    <div class="envelope" id="envelope"
+         role="button" tabindex="0"
+         aria-label="Open your love letter"></div>
+
+    <p class="hint" id="hint">
+        ♡ Click the envelope to open your letter ♡
+    </p>
+
+    <div class="letter" id="letter">
+
+        <h2>Dear Love, 💌</h2>
+
+        <p>
+            I don't always know how to explain my feelings,
+            but one thing I know for sure is that you have
+            a very special place in my heart. ❤️
+        </p>
+
+        <p>
+            Your smile makes my day beautiful, your words
+            make me happy, and every little moment with you
+            becomes a memory I want to keep forever. 🥹💕
+        </p>
+
+        <p>
+            I don't need a perfect love story. I just want
+            something real with you — lots of laughter,
+            cute little fights, endless talks, and beautiful
+            memories together. 🫶🏻
+        </p>
+
+        <p>
+            Even on difficult days, I want us to remember
+            that we are a team. I want to support your dreams,
+            celebrate your happiness, and remind you that
+            you are loved. 💖
+        </p>
+
+        <p>
+            If I could make one wish, it would be to keep
+            choosing you, today, tomorrow, and every day
+            after that. 💍
+        </p>
+
+        <p>
+            You mean more to me than these words can ever say.
+            This little website is just a small way to show
+            you what's in my heart. ❤️‍🩹
+        </p>
+
+        <div class="signature">
+            With all my love, ❤️
+        </div>
+
+        <div style="text-align:center">
+            <button onclick="showLove()">
+                Send a Little Love 💕
+            </button>
+        </div>
+
+        <div id="surprise">
+            I LOVE YOU SO MUCH! 💋💗
+            <p>You're my favourite person. 🫶🏻</p>
+            💖 💕 💗 💖
+        </div>
+
+    </div>
+
+    <footer>
+        MADE WITH LOVE ♡ JUST FOR YOU
+    </footer>
+
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letter");
+const hint = document.getElementById("hint");
+
+function openLetter() {
+    envelope.classList.add("open");
+    hint.style.display = "none";
+
+    setTimeout(() => {
+        letter.style.display = "block";
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 450);
+
+    envelope.removeEventListener("click", openLetter);
+}
+
+envelope.addEventListener("click", openLetter);
+
+envelope.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLetter();
+    }
+});
+
+function showLove() {
+    document.getElementById("surprise").style.display = "block";
+
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("span");
+
+        heart.innerHTML = ["💗", "💕", "❤️", "💖"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "85vh";
+        heart.style.fontSize = "25px";
+        heart.style.pointerEvents = "none";
+        heart.style.zIndex = "10";
+        heart.style.transition = "all 2s ease";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.style.top = "5vh";
+            heart.style.opacity = "0";
+            heart.style.transform =
+                "rotate(360deg) scale(1.5)";
+        }, 50);
+
+        setTimeout(() => heart.remove(), 2200);
+    }
+}
+</script>
+
+</body>
+</html>
